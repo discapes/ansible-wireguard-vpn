@@ -1,0 +1,32 @@
+- ansible.builtin.apt:
+    name: 
+      - wireguard
+      - nftables
+      - neovim
+    update_cache: yes
+
+
+- template:
+    src: wg0.conf.j2
+    dest: /etc/wireguard/wg0.conf
+
+- template:
+    src: nftables.conf.j2
+    dest: /etc/nftables.conf
+
+- copy:
+    content: net.ipv4.ip_forward = 1
+    dest: /etc/sysctl.d/ip_forward.conf
+
+
+- service: 
+    name: wg-quick@wg0
+    state: restarted
+    enabled: yes
+
+- service: 
+    name: nftables
+    state: restarted
+    enabled: yes
+  
+- command: sysctl --load /etc/sysctl.d/ip_forward.conf

@@ -1,0 +1,2 @@
+[vpn]
+debibox ansible_user=admin

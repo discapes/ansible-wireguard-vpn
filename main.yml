@@ -1,0 +1,11 @@
+- hosts: vpn
+  become: true
+  gather_facts: false
+  vars_files:
+  - secrets.yml
+  - clients.yml
+  vars:
+    wireguard_server_listen_port: 51000
+  roles:
+    - vpn
+
