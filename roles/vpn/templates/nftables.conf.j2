@@ -9,6 +9,7 @@ table inet rules {
 		ct state invalid drop comment "early drop of invalid connections"
 		ct state {established, related} accept comment "allow tracked connections"
 		iifname lo accept comment "allow from loopback"
+		iifname wg0 accept comment "allow from wireguard"
 		ip protocol icmp accept comment "allow icmp"
 		meta l4proto ipv6-icmp accept comment "allow icmp v6"
 		tcp dport ssh accept comment "allow ssh"

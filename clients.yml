@@ -1,3 +1,5 @@
 clients:
 - public_key: cXdwVGc9d1AYsRvaIORSQtlz1iT8uwbn9pEUqmAg8hQ=
   allowed_ips: 10.0.0.2/32
+- public_key: Rd5Mmny217bsDtP4qNjai9EFEFgGY2hPy7vCpE9f/x4=
+  allowed_ips: 10.0.0.3/32
